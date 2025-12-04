@@ -13,6 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\api">
+      <UniqueIdentifier>{9809b023-014e-4e54-bf18-e41cb4f1e310}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{6ef26eca-f94c-4781-81a1-58e69c7ee04b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entity">
+      <UniqueIdentifier>{1116af51-c96c-4352-ba86-0d026a3bab9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\singletons">
+      <UniqueIdentifier>{60b8ac93-9940-4ddd-a1eb-fddd4ca9b075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{79861ca5-f074-4082-bb57-8893cc801b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{69555d09-85cd-457f-bafa-b32d81adb01d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entity\character">
+      <UniqueIdentifier>{c771a566-04fe-4c43-8609-c330cebb95a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entity\controller">
+      <UniqueIdentifier>{e3d1634a-9a9d-4872-901d-cf00bc77b4a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entity\projectile">
+      <UniqueIdentifier>{b86b6f1a-faa2-4a6f-bc33-81176d8f13c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\example.h">
@@ -21,12 +48,141 @@
     <ClInclude Include="src\register_types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\api\extension_interface.hpp">
+      <Filter>Source Files\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\concepts.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\constants.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\function_traits.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\assert.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\attributes.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\camera.hpp">
+      <Filter>Source Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\level.hpp">
+      <Filter>Source Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\projectile\projectile_spawner.hpp">
+      <Filter>Source Files\entity\projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\projectile\projectile.hpp">
+      <Filter>Source Files\entity\projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\controller\enemy_controller.hpp">
+      <Filter>Source Files\entity\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\controller\player_controller.hpp">
+      <Filter>Source Files\entity\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\controller\character_controller.hpp">
+      <Filter>Source Files\entity\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\character\enemy.hpp">
+      <Filter>Source Files\entity\character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\character\player.hpp">
+      <Filter>Source Files\entity\character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\character\character.hpp">
+      <Filter>Source Files\entity\character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\main_dialog.hpp">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\engine.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\input.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\io.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\os.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\scene.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\variant.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\bind.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\conversions.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\debug.hpp">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\singletons\console.hpp">
+      <Filter>Source Files\singletons</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\example.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\register_types.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\api\extension_interface.cpp">
+      <Filter>Source Files\api</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\level.cpp">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\camera.cpp">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\projectile\projectile_spawner.cpp">
+      <Filter>Source Files\entity\projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\projectile\projectile.cpp">
+      <Filter>Source Files\entity\projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\controller\enemy_controller.cpp">
+      <Filter>Source Files\entity\controller</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\controller\player_controller.cpp">
+      <Filter>Source Files\entity\controller</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\controller\character_controller.cpp">
+      <Filter>Source Files\entity\controller</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\character\enemy.cpp">
+      <Filter>Source Files\entity\character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\character\player.cpp">
+      <Filter>Source Files\entity\character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\character\character.cpp">
+      <Filter>Source Files\entity\character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\main_dialog.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\input.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\engine.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

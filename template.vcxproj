@@ -19,12 +19,55 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\api\extension_interface.hpp" />
+    <ClInclude Include="src\core\assert.hpp" />
+    <ClInclude Include="src\core\attributes.hpp" />
+    <ClInclude Include="src\core\concepts.hpp" />
+    <ClInclude Include="src\core\constants.hpp" />
+    <ClInclude Include="src\core\function_traits.hpp" />
+    <ClInclude Include="src\entity\camera.hpp" />
+    <ClInclude Include="src\entity\character\character.hpp" />
+    <ClInclude Include="src\entity\character\enemy.hpp" />
+    <ClInclude Include="src\entity\character\player.hpp" />
+    <ClInclude Include="src\entity\controller\character_controller.hpp" />
+    <ClInclude Include="src\entity\controller\enemy_controller.hpp" />
+    <ClInclude Include="src\entity\controller\player_controller.hpp" />
+    <ClInclude Include="src\entity\level.hpp" />
+    <ClInclude Include="src\entity\projectile\projectile.hpp" />
+    <ClInclude Include="src\entity\projectile\projectile_spawner.hpp" />
     <ClInclude Include="src\example.h" />
+    <ClInclude Include="src\main.hpp" />
     <ClInclude Include="src\register_types.h" />
+    <ClInclude Include="src\singletons\console.hpp" />
+    <ClInclude Include="src\ui\main_dialog.hpp" />
+    <ClInclude Include="src\util\bind.hpp" />
+    <ClInclude Include="src\util\conversions.hpp" />
+    <ClInclude Include="src\util\debug.hpp" />
+    <ClInclude Include="src\util\engine.hpp" />
+    <ClInclude Include="src\util\input.hpp" />
+    <ClInclude Include="src\util\io.hpp" />
+    <ClInclude Include="src\util\os.hpp" />
+    <ClInclude Include="src\util\scene.hpp" />
+    <ClInclude Include="src\util\variant.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\api\extension_interface.cpp" />
+    <ClCompile Include="src\entity\camera.cpp" />
+    <ClCompile Include="src\entity\character\character.cpp" />
+    <ClCompile Include="src\entity\character\enemy.cpp" />
+    <ClCompile Include="src\entity\character\player.cpp" />
+    <ClCompile Include="src\entity\controller\character_controller.cpp" />
+    <ClCompile Include="src\entity\controller\enemy_controller.cpp" />
+    <ClCompile Include="src\entity\controller\player_controller.cpp" />
+    <ClCompile Include="src\entity\level.cpp" />
+    <ClCompile Include="src\entity\projectile\projectile.cpp" />
+    <ClCompile Include="src\entity\projectile\projectile_spawner.cpp" />
     <ClCompile Include="src\example.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\register_types.cpp" />
+    <ClCompile Include="src\ui\main_dialog.cpp" />
+    <ClCompile Include="src\util\engine.cpp" />
+    <ClCompile Include="src\util\input.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -79,13 +122,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_EDITOR_Godot|x64'">
     <OutDir>$(ProjectDir)GodotProject\bin\</OutDir>
-    <IncludePath>$(GodotCppPath)gdextension;$(GodotCppPath)gen\include;$(GodotCppPath)gen\include\godot_cpp;$(GodotCppPath)gen\include\godot_cpp\classes;$(GodotCppPath)gen\include\godot_cpp\core;$(GodotCppPath)gen\include\godot_cpp\variant;$(GodotCppPath)include;$(GodotCppPath)include\godot_cpp;$(GodotCppPath)include\godot_cpp\classes;$(GodotCppPath)include\godot_cpp\core;$(GodotCppPath)include\godot_cpp\templates;$(GodotCppPath)include\godot_cpp\variant;$(IncludePath)</IncludePath>
+    <IncludePath>$(GodotCppPath)gdextension;$(GodotCppPath)gen\include;$(GodotCppPath)gen\include\godot_cpp;$(GodotCppPath)gen\include\godot_cpp\classes;$(GodotCppPath)gen\include\godot_cpp\core;$(GodotCppPath)gen\include\godot_cpp\variant;$(GodotCppPath)include;$(GodotCppPath)include\godot_cpp;$(GodotCppPath)include\godot_cpp\classes;$(GodotCppPath)include\godot_cpp\core;$(GodotCppPath)include\godot_cpp\templates;$(GodotCppPath)include\godot_cpp\variant;$(ProjectDir)\src</IncludePath>
     <LibraryPath>$(GodotCppBinPath);$(LibraryPath)</LibraryPath>
     <TargetName>libgd.windows.template_debug.x86_64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_GAME_Godot|x64'">
     <OutDir>$(ProjectDir)GodotProject\bin\</OutDir>
-    <IncludePath>$(GodotCppPath)gdextension;$(GodotCppPath)gen\include;$(GodotCppPath)gen\include\godot_cpp;$(GodotCppPath)gen\include\godot_cpp\classes;$(GodotCppPath)gen\include\godot_cpp\core;$(GodotCppPath)gen\include\godot_cpp\variant;$(GodotCppPath)include;$(GodotCppPath)include\godot_cpp;$(GodotCppPath)include\godot_cpp\classes;$(GodotCppPath)include\godot_cpp\core;$(GodotCppPath)include\godot_cpp\templates;$(GodotCppPath)include\godot_cpp\variant;$(IncludePath)</IncludePath>
+    <IncludePath>$(GodotCppPath)gdextension;$(GodotCppPath)gen\include;$(GodotCppPath)gen\include\godot_cpp;$(GodotCppPath)gen\include\godot_cpp\classes;$(GodotCppPath)gen\include\godot_cpp\core;$(GodotCppPath)gen\include\godot_cpp\variant;$(GodotCppPath)include;$(GodotCppPath)include\godot_cpp;$(GodotCppPath)include\godot_cpp\classes;$(GodotCppPath)include\godot_cpp\core;$(GodotCppPath)include\godot_cpp\templates;$(GodotCppPath)include\godot_cpp\variant;$(ProjectDir)\src</IncludePath>
     <LibraryPath>$(GodotCppBinPath);$(LibraryPath)</LibraryPath>
     <TargetName>libgd.windows.template_debug.x86_64</TargetName>
   </PropertyGroup>
@@ -119,7 +162,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN64;TYPED_METHOD_BIND;NOMINMAX;HOT_RELOAD_ENABLED;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -139,7 +182,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN64;TYPED_METHOD_BIND;NOMINMAX;HOT_RELOAD_ENABLED;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
