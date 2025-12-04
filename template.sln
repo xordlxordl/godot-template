@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
@@ -6,6 +5,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "template", "template.vcxproj", "{710C6B44-6283-4410-86BD-8243CD6580FB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GodotEngine", "GodotEngine.vcxproj", "{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{710C6B44-6283-4410-86BD-8243CD6580FB} = {710C6B44-6283-4410-86BD-8243CD6580FB}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +17,16 @@ Global
 		Debug_GAME_Godot|x86 = Debug_GAME_Godot|x86
 		Editor|x64 = Editor|x64
 		Editor|x86 = Editor|x86
+		Editor_DotNet|x64 = Editor_DotNet|x64
+		Editor_DotNet|x86 = Editor_DotNet|x86
 		Template_Debug|x64 = Template_Debug|x64
 		Template_Debug|x86 = Template_Debug|x86
+		Template_Debug_DotNet|x64 = Template_Debug_DotNet|x64
+		Template_Debug_DotNet|x86 = Template_Debug_DotNet|x86
 		Template_Release|x64 = Template_Release|x64
 		Template_Release|x86 = Template_Release|x86
+		Template_Release_DotNet|x64 = Template_Release_DotNet|x64
+		Template_Release_DotNet|x86 = Template_Release_DotNet|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{710C6B44-6283-4410-86BD-8243CD6580FB}.Debug_EDITOR_Godot|x64.ActiveCfg = Debug_EDITOR_Godot|x64
@@ -54,6 +62,27 @@ Global
 		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Template_Release|x64.ActiveCfg = Template_Release|x64
 		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Template_Release|x64.Build.0 = Template_Release|x64
 		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Template_Release|x86.ActiveCfg = Template_Release|x64
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Editor_DotNet|x64.ActiveCfg = Debug_EDITOR_Godot|x64
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Editor_DotNet|x64.Build.0 = Debug_EDITOR_Godot|x64
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Editor_DotNet|x86.ActiveCfg = Debug_EDITOR_Godot|Win32
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Editor_DotNet|x86.Build.0 = Debug_EDITOR_Godot|Win32
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Template_Debug_DotNet|x64.ActiveCfg = Debug_GAME_Godot|x64
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Template_Debug_DotNet|x64.Build.0 = Debug_GAME_Godot|x64
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Template_Debug_DotNet|x86.ActiveCfg = Debug_GAME_Godot|Win32
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Template_Debug_DotNet|x86.Build.0 = Debug_GAME_Godot|Win32
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Template_Release_DotNet|x64.ActiveCfg = Debug_GAME_Godot|x64
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Template_Release_DotNet|x64.Build.0 = Debug_GAME_Godot|x64
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Template_Release_DotNet|x86.ActiveCfg = Debug_GAME_Godot|Win32
+		{710C6B44-6283-4410-86BD-8243CD6580FB}.Template_Release_DotNet|x86.Build.0 = Debug_GAME_Godot|Win32
+		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Editor_DotNet|x64.ActiveCfg = Editor_DotNet|x64
+		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Editor_DotNet|x64.Build.0 = Editor_DotNet|x64
+		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Editor_DotNet|x86.ActiveCfg = Editor_DotNet|x64
+		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Template_Debug_DotNet|x64.ActiveCfg = Template_Debug_DotNet|x64
+		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Template_Debug_DotNet|x64.Build.0 = Template_Debug_DotNet|x64
+		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Template_Debug_DotNet|x86.ActiveCfg = Template_Debug_DotNet|x64
+		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Template_Release_DotNet|x64.ActiveCfg = Template_Release_DotNet|x64
+		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Template_Release_DotNet|x64.Build.0 = Template_Release_DotNet|x64
+		{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}.Template_Release_DotNet|x86.ActiveCfg = Template_Release_DotNet|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

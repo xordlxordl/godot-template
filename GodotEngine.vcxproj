@@ -5,12 +5,24 @@
       <Configuration>Editor</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Editor_DotNet|x64">
+      <Configuration>Editor_DotNet</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Template_Debug|x64">
       <Configuration>Template_Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Template_Debug_DotNet|x64">
+      <Configuration>Template_Debug_DotNet</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Template_Release|x64">
       <Configuration>Template_Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template_Release_DotNet|x64">
+      <Configuration>Template_Release_DotNet</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -36,6 +48,21 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor_DotNet|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Debug_DotNet|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Release_DotNet|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -50,22 +77,39 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template_Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Editor_DotNet|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template_Debug_DotNet|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template_Release_DotNet|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor|x64'">
-    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor</NMakeBuildCommandLine>
-    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.editor.x86_64.exe</NMakeOutput>
-    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor -c</NMakeCleanCommandLine>
-    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor -c &amp;&amp; scons platform=windows target=editor</NMakeReBuildCommandLine>
-    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor dev_build=yes</NMakeBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.editor.dev.x86_64.exe</NMakeOutput>
+    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor dev_build=yes -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor dev_build=yes -c &amp;&amp; scons platform=windows target=editor dev_build=yes</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;DEBUG_ENABLED;DEV_ENABLED;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(ProjectDir)godot\core;$(ProjectDir)godot\scene;$(ProjectDir)godot\editor;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <LocalDebuggerCommand>$(NMakeOutput)</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)GodotProject</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>--path "$(ProjectDir)GodotProject" --editor</LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Debug|x64'">
-    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug</NMakeBuildCommandLine>
-    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.template_debug.x86_64.exe</NMakeOutput>
-    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug -c</NMakeCleanCommandLine>
-    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug -c &amp;&amp; scons platform=windows target=template_debug</NMakeReBuildCommandLine>
-    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug dev_build=yes</NMakeBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.template_debug.dev.x86_64.exe</NMakeOutput>
+    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug dev_build=yes -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug dev_build=yes -c &amp;&amp; scons platform=windows target=template_debug dev_build=yes</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;DEBUG_ENABLED;DEV_ENABLED;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(ProjectDir)godot\core;$(ProjectDir)godot\scene;$(ProjectDir)godot\editor;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <LocalDebuggerCommand>$(NMakeOutput)</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)GodotProject</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>--path "$(ProjectDir)GodotProject"</LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Release|x64'">
     <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_release</NMakeBuildCommandLine>
@@ -74,6 +118,38 @@
     <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_release -c &amp;&amp; scons platform=windows target=template_release</NMakeReBuildCommandLine>
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeIncludeSearchPath>$(ProjectDir)godot;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor_DotNet|x64'">
+    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor module_mono_enabled=yes dev_build=yes</NMakeBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.editor.dev.x86_64.mono.exe</NMakeOutput>
+    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor module_mono_enabled=yes dev_build=yes -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor module_mono_enabled=yes dev_build=yes -c &amp;&amp; scons platform=windows target=editor module_mono_enabled=yes dev_build=yes</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;DEBUG_ENABLED;DEV_ENABLED;MODULE_MONO_ENABLED;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(ProjectDir)godot\core;$(ProjectDir)godot\scene;$(ProjectDir)godot\editor;$(ProjectDir)godot\modules\mono;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <LocalDebuggerCommand>$(NMakeOutput)</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)GodotProject</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>--path "$(ProjectDir)GodotProject" --editor</LocalDebuggerCommandArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Debug_DotNet|x64'">
+    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug module_mono_enabled=yes dev_build=yes</NMakeBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.template_debug.dev.x86_64.mono.exe</NMakeOutput>
+    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug module_mono_enabled=yes dev_build=yes -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug module_mono_enabled=yes dev_build=yes -c &amp;&amp; scons platform=windows target=template_debug module_mono_enabled=yes dev_build=yes</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;DEBUG_ENABLED;DEV_ENABLED;MODULE_MONO_ENABLED;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(ProjectDir)godot\core;$(ProjectDir)godot\scene;$(ProjectDir)godot\editor;$(ProjectDir)godot\modules\mono;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <LocalDebuggerCommand>$(NMakeOutput)</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)GodotProject</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>--path "$(ProjectDir)GodotProject"</LocalDebuggerCommandArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Release_DotNet|x64'">
+    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_release module_mono_enabled=yes</NMakeBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.template_release.x86_64.mono.exe</NMakeOutput>
+    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_release module_mono_enabled=yes -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_release module_mono_enabled=yes -c &amp;&amp; scons platform=windows target=template_release module_mono_enabled=yes</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;MODULE_MONO_ENABLED;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(ProjectDir)godot\modules\mono;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
