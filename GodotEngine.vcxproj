@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Editor|x64">
+      <Configuration>Editor</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template_Debug|x64">
+      <Configuration>Template_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template_Release|x64">
+      <Configuration>Template_Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{A9F3A546-8C8D-4B7A-9E5C-6F2D8E4B3C1A}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectName>GodotEngine</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Editor|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template_Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template_Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor|x64'">
+    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor</NMakeBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.editor.x86_64.exe</NMakeOutput>
+    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=editor -c &amp;&amp; scons platform=windows target=editor</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Debug|x64'">
+    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug</NMakeBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.template_debug.x86_64.exe</NMakeOutput>
+    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_debug -c &amp;&amp; scons platform=windows target=template_debug</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template_Release|x64'">
+    <NMakeBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_release</NMakeBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)godot\bin\godot.windows.template_release.x86_64.exe</NMakeOutput>
+    <NMakeCleanCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_release -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>cd "$(ProjectDir)godot" &amp;&amp; scons platform=windows target=template_release -c &amp;&amp; scons platform=windows target=template_release</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(ProjectDir)godot;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="godot\SConstruct" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="GodotVersionSettings">
+    <!-- Godot Engine Version -->
+    <GodotVersion>4.5.1</GodotVersion>
+
+    <!-- Godot Engine Binary Path -->
+    <GodotEnginePath>$(ProjectDir)bin\$(GodotVersion)\</GodotEnginePath>
+
+    <!-- Godot Editor Executable -->
+    <GodotEditorExe>Godot_v$(GodotVersion)-stable_mono_win64.exe</GodotEditorExe>
+    <GodotEditorPath>$(GodotEnginePath)$(GodotEditorExe)</GodotEditorPath>
+
+    <!-- Godot-CPP Configuration -->
+    <GodotCppPath>$(ProjectDir)godot-cpp\</GodotCppPath>
+    <GodotCppBinPath>$(GodotCppPath)bin\</GodotCppBinPath>
+  </PropertyGroup>
+</Project>
