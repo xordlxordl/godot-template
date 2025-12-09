@@ -13,6 +13,6 @@
 
     <!-- Godot-CPP Configuration -->
     <GodotCppPath>$(ProjectDir)godot-cpp\</GodotCppPath>
-    <GodotCppBinPath>$(GodotCppPath)bin\</GodotCppBinPath>
+    <GodotCppBinPath>$(GodotCppPath)build\bin\</GodotCppBinPath>
   </PropertyGroup>
 </Project>

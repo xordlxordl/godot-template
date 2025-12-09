@@ -53,7 +53,7 @@ namespace rl
         engine::set_fps(60);
         input::use_accumulated_inputs(false);
 
-        if (not engine::editor_active())
+        if (!engine::editor_active())
             engine::root_window()->set_size({ 1920, 1080 });
     }
 }
