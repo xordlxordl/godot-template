@@ -75,6 +75,10 @@
     <ProjectGuid>{710c6b44-6283-4410-86bd-8243cd6580fb}</ProjectGuid>
     <RootNamespace>template</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <VcpkgEnabled>true</VcpkgEnabled>
+    <VcpkgConfiguration>Debug</VcpkgConfiguration>
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+    <VcpkgInstalledDir>$(MSBuildThisFileDirectory)vcpkg_installed\$(VcpkgTriplet)\</VcpkgInstalledDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="GodotVersion.props" />
@@ -122,14 +126,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_EDITOR_Godot|x64'">
     <OutDir>$(ProjectDir)GodotProject\bin\</OutDir>
-    <IncludePath>$(GodotCppPath)gdextension;$(GodotCppPath)gen\include;$(GodotCppPath)gen\include\godot_cpp;$(GodotCppPath)gen\include\godot_cpp\classes;$(GodotCppPath)gen\include\godot_cpp\core;$(GodotCppPath)gen\include\godot_cpp\variant;$(GodotCppPath)include;$(GodotCppPath)include\godot_cpp;$(GodotCppPath)include\godot_cpp\classes;$(GodotCppPath)include\godot_cpp\core;$(GodotCppPath)include\godot_cpp\templates;$(GodotCppPath)include\godot_cpp\variant;$(ProjectDir)\src</IncludePath>
-    <LibraryPath>$(GodotCppBinPath);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)vcpkg_installed\x64-windows\include;$(GodotCppPath)gdextension;$(GodotCppPath)gen\include;$(GodotCppPath)gen\include\godot_cpp;$(GodotCppPath)gen\include\godot_cpp\classes;$(GodotCppPath)gen\include\godot_cpp\core;$(GodotCppPath)gen\include\godot_cpp\variant;$(GodotCppPath)include;$(GodotCppPath)include\godot_cpp;$(GodotCppPath)include\godot_cpp\classes;$(GodotCppPath)include\godot_cpp\core;$(GodotCppPath)include\godot_cpp\templates;$(GodotCppPath)include\godot_cpp\variant;$(ProjectDir)\src</IncludePath>
+    <LibraryPath>$(ProjectDir)vcpkg_installed\x64-windows\debug\lib;$(ProjectDir)vcpkg_installed\x64-windows\lib;$(GodotCppBinPath);$(LibraryPath)</LibraryPath>
     <TargetName>libgd.windows.template_debug.x86_64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_GAME_Godot|x64'">
     <OutDir>$(ProjectDir)GodotProject\bin\</OutDir>
-    <IncludePath>$(GodotCppPath)gdextension;$(GodotCppPath)gen\include;$(GodotCppPath)gen\include\godot_cpp;$(GodotCppPath)gen\include\godot_cpp\classes;$(GodotCppPath)gen\include\godot_cpp\core;$(GodotCppPath)gen\include\godot_cpp\variant;$(GodotCppPath)include;$(GodotCppPath)include\godot_cpp;$(GodotCppPath)include\godot_cpp\classes;$(GodotCppPath)include\godot_cpp\core;$(GodotCppPath)include\godot_cpp\templates;$(GodotCppPath)include\godot_cpp\variant;$(ProjectDir)\src</IncludePath>
-    <LibraryPath>$(GodotCppBinPath);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)vcpkg_installed\x64-windows\include;$(GodotCppPath)gdextension;$(GodotCppPath)gen\include;$(GodotCppPath)gen\include\godot_cpp;$(GodotCppPath)gen\include\godot_cpp\classes;$(GodotCppPath)gen\include\godot_cpp\core;$(GodotCppPath)gen\include\godot_cpp\variant;$(GodotCppPath)include;$(GodotCppPath)include\godot_cpp;$(GodotCppPath)include\godot_cpp\classes;$(GodotCppPath)include\godot_cpp\core;$(GodotCppPath)include\godot_cpp\templates;$(GodotCppPath)include\godot_cpp\variant;$(ProjectDir)\src</IncludePath>
+    <LibraryPath>$(ProjectDir)vcpkg_installed\x64-windows\debug\lib;$(ProjectDir)vcpkg_installed\x64-windows\lib;$(GodotCppBinPath);$(LibraryPath)</LibraryPath>
     <TargetName>libgd.windows.template_debug.x86_64</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_EDITOR_Godot|Win32'">
@@ -160,41 +164,35 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN64;TYPED_METHOD_BIND;NOMINMAX;HOT_RELOAD_ENABLED;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>WIN64;TYPED_METHOD_BIND;NOMINMAX;HOT_RELOAD_ENABLED;FMT_HEADER_ONLY;SPDLOG_HEADER_ONLY;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 /Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(GodotCppBinPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)vcpkg_installed\x64-windows\debug\lib;$(ProjectDir)vcpkg_installed\x64-windows\lib;$(GodotCppBinPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libgodot-cpp.windows.template_debug.x86_64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>cd "$(GodotCppPath)" &amp;&amp; scons platform=windows target=template_debug</Command>
-      <Message>Building godot-cpp with SCons...</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_GAME_Godot|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN64;TYPED_METHOD_BIND;NOMINMAX;HOT_RELOAD_ENABLED;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>WIN64;TYPED_METHOD_BIND;NOMINMAX;HOT_RELOAD_ENABLED;FMT_HEADER_ONLY;SPDLOG_HEADER_ONLY;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 /Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(GodotCppBinPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)vcpkg_installed\x64-windows\debug\lib;$(ProjectDir)vcpkg_installed\x64-windows\lib;$(GodotCppBinPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libgodot-cpp.windows.template_debug.x86_64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>cd "$(GodotCppPath)" &amp;&amp; scons platform=windows target=template_debug</Command>
-      <Message>Building godot-cpp with SCons...</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
